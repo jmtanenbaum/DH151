@@ -37,9 +37,50 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-bookstores.forEach(function(item){
 
-var marker = L.marker([item.lat,item.lon]).addTo(map)
-.bindPopup(item.title + ' ' + item.description)
-.openPopup();				
-});
+
+// var marker = L.marker([item.lat,item.lon]).addTo(map)
+// .bindPopup(item.title + ' ' + item.description)
+// .openPopup();	
+
+// bookstores.forEach(function(item,index){
+// 	// add marker to map
+// 	L.marker([item.lat,item.lon])
+//         .bindPopup%(item.title + item.description)
+//                     })
+// });
+
+// before looping the data, create an empty FeatureGroup
+let myMarkers = L.featureGroup();
+
+// loop through data
+bookstores.forEach(function(item,index){
+	// create marker
+	let marker = L.marker([item.lat,item.lon]).bindPopup(item.title + item.description)
+    // add data to sidebar with onclick event
+    $('.sidebar').append(`<div class="sidebar-item" onclick="flyToIndex(${index})">${item.title}</div>`)
+
+	// add marker to featuregroup
+	myMarkers.addLayer(marker)
+
+})
+
+// after loop, add the FeatureGroup to map
+myMarkers.addTo(map)
+
+// define layers
+let layers = {
+	"My Markers": myMarkers
+}
+
+// add layer control box
+L.control.layers(null,layers).addTo(map) 
+
+map.fitBounds(myMarkers.getBounds())
+
+function flyToIndex(index){
+
+    map.flyTo([bookstores[index].lat,bookstores[index].lon],12)
+    myMarkers.getLayers()[index].openPopup() 
+
+}
