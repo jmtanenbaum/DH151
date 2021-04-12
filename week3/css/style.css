@@ -20,12 +20,12 @@ body {
 .header {
 	grid-area: header;
 	padding:10px;
-    background-color: #333;
+    background-color: rgb(130, 144, 182);
 }
 .sidebar {
 	grid-area: sidebar;
 	padding:10px;
-    background-color: #555;
+    background-color: rgb(195, 181, 211);
 }
 .content {
 	grid-area: content;
