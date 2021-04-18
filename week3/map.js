@@ -61,7 +61,7 @@ bookstores.forEach(function(item,index){
 	// create marker
 	 marker = L.marker([item.lat,item.lon,], {icon: book}) 
 
-	 .bindPopup(`<div><h2>${item.title}</h2></div><br>${item.description}</br><img src="${item.url}" width=80%>`)
+	 .bindPopup(`<div>${item.title}<br>${item.description}</br><img src="${item.url}" width=80%>`)
     // add data to sidebar with onclick event
     $('.sidebar').append(`<div class="sidebar-item" onclick="flyToIndex(${index})">${item.title}</div>`)
 
