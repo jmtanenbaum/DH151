@@ -25,7 +25,8 @@ body {
 .sidebar {
 	grid-area: sidebar;
 	padding:10px;
-    background-color: rgb(195, 181, 211);
+    background: rgb(238,174,202);
+background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
 }
 .content {
 	grid-area: content;
@@ -35,5 +36,7 @@ body {
     padding: 10px; /* adds inner padding */
     background: rgb(120, 140, 165); /* background color */
     border: 1px solid gray; /* border width, style, and color */
-    margin: 5px; /* outer padding */
+	margin: 10px; /* outer padding */
+	cursor: pointer; 
 }
+.sidebar-item:hover {box-shadow: 0 5px rgb(73, 71, 90);}
