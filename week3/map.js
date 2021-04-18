@@ -35,8 +35,8 @@ let bookstores = [
 var book = L.icon({
 	iconUrl: 'books.png',
 	iconSize: [30, 30],
-	iconAnchor: [22, 94],
-	popupAnchor: [-3, -76]
+	iconAnchor: [22, 24],
+	popupAnchor: [-3, -26]
 	});
 
 var map = L.map('map').setView([13.7563,100.5018],1);
