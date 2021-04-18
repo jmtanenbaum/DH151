@@ -31,6 +31,12 @@ let bookstores = [
 'lon': -76.61830814462655
 }
 ]
+
+var book = L.icon({
+	iconURL: 'https://static.thenounproject.com/png/3688-200.png',
+	iconSize: [30, 30]
+	});
+
 var map = L.map('map').setView([13.7563,100.5018],1);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -38,25 +44,16 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
 }).addTo(map);
 
 
-
-// var marker = L.marker([item.lat,item.lon]).addTo(map)
-// .bindPopup(item.title + ' ' + item.description)
-// .openPopup();	
-
-// bookstores.forEach(function(item,index){
-// 	// add marker to map
-// 	L.marker([item.lat,item.lon])
-//         .bindPopup%(item.title + item.description)
-//                     })
-// });
-
 // before looping the data, create an empty FeatureGroup
 let myMarkers = L.featureGroup();
+
 
 // loop through data
 bookstores.forEach(function(item,index){
 	// create marker
-	let marker = L.marker([item.lat,item.lon]).bindPopup(item.title + item.description)
+	 marker = L.marker([item.lat,item.lon], {icon: book}) 
+
+		.bindPopup(item.title + item.description)
     // add data to sidebar with onclick event
     $('.sidebar').append(`<div class="sidebar-item" onclick="flyToIndex(${index})">${item.title}</div>`)
 
