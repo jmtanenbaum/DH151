@@ -33,7 +33,7 @@ let bookstores = [
 ]
 
 var book = L.icon({
-	iconURL: 'https://static.thenounproject.com/png/3688-200.png',
+	iconUrl: 'books.png',
 	iconSize: [30, 30],
 	iconAnchor: [22, 94],
 	popupAnchor: [-3, -76]
