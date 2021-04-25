@@ -1,7 +1,4 @@
-Facility,State,County / Name of Facility,Date,Source,"Confirmed Cases 
-(Residents)",Confirmed Cases (Staff),"Confirmed Deaths
-(Residents)","Confirmed Deaths
-(Staff)","Resident Population (On February 1st, 2020)",Current Resident Population,lat,long
+Facility,State,name,Date,Source,cases,staffcases,deaths,staffdeaths,pop,currentpop,lat,lon
 state,Alabama,ALABAMA HEADQUARTERS,4/23/2021,http://www.doc.alabama.gov/covid19news,0,72,0,0,,,,
 state,Alabama,ALABAMA TREATMENT AND EDUCATION FACILITY,4/23/2021,http://www.doc.alabama.gov/covid19news,11,2,1,0,281,,33.18100499,-86.62401724
 state,Alabama,ALEX CITY COMMUNITY BASED FACILITY,4/23/2021,http://www.doc.alabama.gov/covid19news,77,17,0,0,201,,32.90447114,-86.00896897

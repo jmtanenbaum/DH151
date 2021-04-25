@@ -14,7 +14,7 @@ $( document ).ready(function() {
 
 // create the map
 function createMap(lat,lon,zl){
-	map = L.map('map').setView([Lat,Long], zl);
+	map = L.map('map').setView([lat,lon], zl);
 
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -50,9 +50,9 @@ function mapCSV(data){
 	// loop through each entry
 	data.data.forEach(function(item,index){
 		// create a marker
-		let marker = L.circleMarker([item.Lat,item.Long],circleOptions)
+		let marker = L.circleMarker([item.lat,item.lon],circleOptions)
 		.on('mouseover',function(){
-			this.bindPopup(`${item.Facility}`).openPopup()
+			this.bindPopup(`${item.cases}`).openPopup()
 		})
 
 		// add marker to featuregroup
