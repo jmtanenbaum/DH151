@@ -40,10 +40,10 @@ function mapCSV(data){
 
 	// circle options
 	let circleOptions = {
-		radius: 5,
+		radius: 3,
 		weight: 1,
 		color: 'white',
-		fillColor: 'dodgerblue',
+		fillColor: 'red',
 		fillOpacity: 1
 	}
 
@@ -52,14 +52,13 @@ function mapCSV(data){
 		// create a marker
 		let marker = L.circleMarker([item.lat,item.lon],circleOptions)
 		.on('mouseover',function(){
-			this.bindPopup(`${item.cases}`).openPopup()
+			this.bindPopup(`Facility name: ${item.name} <div> Prisoner Covid-19 cases: ${item.cases}<div>Prisoner deaths: ${item.deaths}<div>Incarcerated Population: ${item.pop}<div> Staff Covid-19 cases: ${item.staffcases} <div> Staff deaths: ${item.staffdeaths}`).openPopup()
 		})
-
-		// add marker to featuregroup
-		markers.addLayer(marker)
+			// add marker to featuregroup
+			markers.addLayer(marker)
 
 		// add entry to sidebar
-		//$('.sidebar').append(`<img src="${item.thumbnail_url}" onmouseover="panToImage(${index})">`)
+        $('.sidebar').append(`<div class="sidebar-item" onclick="panToImage(${index}')">${item.name}</div>`)
 	})
 
 	// add featuregroup to map
@@ -68,8 +67,8 @@ function mapCSV(data){
 	// fit map to markers
 	map.fitBounds(markers.getBounds())
 }
-
 function panToImage(index){
-	map.setZoom(17);
+	// pan to the marker
 	map.panTo(markers.getLayers()[index]._latlng);
 }
+
