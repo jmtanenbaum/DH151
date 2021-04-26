@@ -72,5 +72,6 @@ function panToImage(index){
 	map.setZoom(17);
 	// pan to the marker
 	map.panTo(markers.getLayers()[index]._latlng);
+	map.openPopup(marker)
 }
 
