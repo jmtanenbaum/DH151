@@ -54,11 +54,12 @@ function mapCSV(data){
 		.on('mouseover',function(){
 			this.bindPopup(`Facility name: ${item.name} <div> Prisoner Covid-19 cases: ${item.cases}<div>Prisoner deaths: ${item.deaths}<div>Incarcerated Population: ${item.pop}<div> Staff Covid-19 cases: ${item.staffcases} <div> Staff deaths: ${item.staffdeaths}`).openPopup()
 		})
-			// add marker to featuregroup
+			// add entry to sidebar
+        $('.sidebar').append(`<div onmousemove="panToImage(${index})"><br>${item.name}<br><br></div>`)
+		
+		// add marker to featuregroup
 			markers.addLayer(marker)
 
-		// add entry to sidebar
-        $('.sidebar').append(`<div class="sidebar-item" onclick="panToImage(${index}')">${item.name}</div>`)
 	})
 
 	// add featuregroup to map
@@ -68,6 +69,7 @@ function mapCSV(data){
 	map.fitBounds(markers.getBounds())
 }
 function panToImage(index){
+	map.setZoom(17);
 	// pan to the marker
 	map.panTo(markers.getLayers()[index]._latlng);
 }
